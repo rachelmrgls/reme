@@ -1,3 +1,11 @@
 <% provide(:title, "Home") %>
-<h1>Welcome to RE: me</h1>
-<p>A website for helping YOU find the feedback you need on your resume from real Human Resources representatives at the companies you want to work for!</p>
+<div class="center jumbotron">
+  <h1>Welcome to RE: me</h1>
+
+  <h2>
+    A website for helping YOU find the feedback you need on your resume from real Human Resources representatives at the companies you want to work for!</h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("reme.png", alt: "REme logo") %>
