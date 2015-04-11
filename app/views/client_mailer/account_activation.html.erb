@@ -1,0 +1,10 @@
+<h1>RE: me</h1>
+
+<p>Hi <%= @client.name %>,</p>
+
+<p>
+Welcome to RE: me! Click on the link below to activate your account:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@client.activation_token,
+                                                    email: @client.email) %>

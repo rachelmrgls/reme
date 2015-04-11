@@ -18,9 +18,9 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)    # Not the final implementation!
     if @client.save
-    	log_in @client
-    	flash[:success] = "You have succesfully created an account!"
-      redirect_to @client
+    	@client.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end

@@ -5,11 +5,15 @@ class SessionsController < ApplicationController
   def create
     client = Client.find_by(email: params[:session][:email].downcase)
     if client && client.authenticate(params[:session][:password])
-      log_in client
-      redirect_back_or client
-    else
-      flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
-      render 'new'
+      if client.activated?
+        log_in client
+        redirect_back_or client
+      else
+        message  = "Account not activated. "
+        message += "Check your email for the activation link."
+        flash[:warning] = message
+        redirect_to root_url
+      end
     end
   end
 

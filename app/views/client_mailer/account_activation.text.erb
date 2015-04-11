@@ -1,0 +1,7 @@
+ClientMailer#account_activation
+
+Hi <%= @client.name %>,
+
+Welcome to RE: me! Click on the link below to activate your account:
+
+<%= edit_account_activation_url(@client.activation_token, email: @client.email) %>
