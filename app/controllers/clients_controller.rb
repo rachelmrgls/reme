@@ -16,11 +16,11 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = Client.new(client_params)    # Not the final implementation!
+    @client = Client.new(client_params)
     if @client.save
-    	@client.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+    	log_in @client
+      flash[:success] = "Your account has been successfully created!"
+      redirect_to @client
     else
       render 'new'
     end
@@ -49,8 +49,7 @@ class ClientsController < ApplicationController
   private
 
     def client_params
-      params.require(:client).permit(:name, :email, :password,
-                                   :password_confirmation)
+      params.require(:client).permit(:name, :email, :password, :password_confirmation, :resume)
     end
 
 
