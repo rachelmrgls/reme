@@ -5,9 +5,8 @@ class SessionsController < ApplicationController
   def create
     client = Client.find_by(email: params[:session][:email].downcase)
     if client && client.authenticate(params[:session][:password])
-      log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_back_or user
+      log_in client
+      redirect_back_or client
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
