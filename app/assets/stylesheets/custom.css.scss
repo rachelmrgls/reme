@@ -116,7 +116,7 @@ footer {
 /* sidebar */
 
 aside {
-  section.client_info {
+  section.user_info {
     margin-top: 20px;
   }
   section {
@@ -193,9 +193,20 @@ input {
 }
 
 
-/* Clients index */
+/* users index */
 
-.clients {
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* feedbacks index */
+.feedbacks {
   list-style: none;
   margin: 0;
   li {

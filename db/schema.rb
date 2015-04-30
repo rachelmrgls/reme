@@ -11,11 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411030804) do
+ActiveRecord::Schema.define(version: 20150428153200) do
 
-  create_table "clients", force: :cascade do |t|
+  create_table "feedbacks", force: :cascade do |t|
+    t.text     "appearance"
+    t.text     "experience"
+    t.text     "organization"
+    t.text     "overall"
+    t.integer  "score"
+    t.integer  "status"
+    t.string   "resume"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "feedbacks", ["user_id", "created_at"], name: "index_feedbacks_on_user_id_and_created_at"
+  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id"
+
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
+    t.integer  "isReviewer"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "password_digest"
@@ -23,6 +40,6 @@ ActiveRecord::Schema.define(version: 20150411030804) do
     t.string   "resume"
   end
 
-  add_index "clients", ["email"], name: "index_clients_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

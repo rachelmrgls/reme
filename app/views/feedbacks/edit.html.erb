@@ -1,0 +1,31 @@
+<% provide(:title, "Review") %>
+<h1>Review this Resume</h1>
+
+<div class="row">
+  <div class="col-md-7 well">
+  <%= image_tag @feedback.resume if @feedback.resume? %>
+  </div>
+  <div class="col-md-5">
+    <%= form_for(@feedback,  html: { multipart: true }) do |f| %>
+      <%#= render 'shared/error_messages' %>
+
+      <%= f.label :appearance %>
+      <%= f.text_area :appearance, class: 'form-control' %>
+
+      <%= f.label :experience %>
+      <%= f.text_area :experience, class: 'form-control' %>
+
+
+      <%= f.label :organization %>
+      <%= f.text_area :organization, class: 'form-control' %>
+
+      <%= f.label :overall %>
+      <%= f.text_area :overall, class: 'form-control' %>
+
+      <%= f.label "Score (0-100)" %>
+      <%= f.number_field :score, class: 'form-control' %>
+
+      <%= f.submit "Submit Feedback", class: "btn btn-lg btn-primary" %>
+    <% end %>
+  </div>
+</div>

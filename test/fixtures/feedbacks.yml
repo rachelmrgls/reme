@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appearance: MyText
+  experience: MyText
+  overall: MyText
+  score: 1
+  reviewer_id: 
+  client_id: 
+
+two:
+  appearance: MyText
+  experience: MyText
+  overall: MyText
+  score: 1
+  reviewer_id: 
+  client_id: 

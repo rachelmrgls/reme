@@ -1,0 +1,38 @@
+<% provide(:title, "View Feedback") %>
+<div class="row">
+  <aside class="col-md-12">
+    <section class="jumbotron">
+        <h1 class="col-md-10">
+          <br>
+          View Resume Feedback
+        </h1>
+        <div class="col-md-2">
+        <br><br><br>
+        <%= link_to "Back to Profile", current_user, class:"btn btn-lg btn-success"%>
+        </div>
+    </section>
+    <div class="col-md-7 well">
+    <%= image_tag @feedback.resume if @feedback.resume? %>
+    </div>
+    <div class="col-md-5">
+      <div class="appearance well"><strong>Appearance Comments: </strong><%= @feedback.appearance %></div>
+      <br>
+      <div class="experience well"><strong>Experience Comments: </strong><%= @feedback.experience %></div>
+      <br>
+      <div class="organization well"><strong>Organizational Comments: </strong><%= @feedback.organization %></div>
+      <br>
+      <div class="overall well"><strong>Overall Comments: </strong><%= @feedback.overall %></div>
+      <br>
+      <div class="score well"><strong>Score: </strong><%= @feedback.score %></div>
+      <br>
+      <div class="timestamp"><strong>
+      <% if @feedback.status == 0 %> 
+          Submitted <%= time_ago_in_words(@feedback.created_at) %> ago.
+      <%else%>
+          Reviewed <%= time_ago_in_words(@feedback.updated_at) %> ago.
+      <%end%>
+      </strong></div>
+      <br>
+    </div>
+  </aside>
+</div>
