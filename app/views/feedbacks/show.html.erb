@@ -27,7 +27,7 @@
       <br>
       <div class="timestamp"><strong>
       <% if @feedback.status == 0 %> 
-          Submitted <%= time_ago_in_words(@feedback.created_at) %> ago.
+          Submitted <%= time_ago_in_words(@feedback.created_at) %> ago. 
       <%else%>
           Reviewed <%= time_ago_in_words(@feedback.updated_at) %> ago.
       <%end%>
