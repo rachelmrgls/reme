@@ -1,8 +1,10 @@
 <% provide(:title, "Edit user") %>
+<div class="row col-md-8 col-md-offset-2 well">
 <h1>Update your profile</h1>
+</div>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8 col-md-offset-2 well">
     <%= form_for(@user,  html: { multipart: true }) do |f| %>
       <%= render 'shared/error_messages' %>
 

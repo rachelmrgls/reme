@@ -1,7 +1,6 @@
 <% if (current_user.isReviewer == 1 && feedback.status == 0) %>
 	<li id="feedback-<%= feedback.id %>">
 	  <%= link_to gravatar_for(feedback.user, size: 50), edit_feedback_path(feedback)%>
-	  <span>AWAITING REVIEW</span>
 	  <span class="timestamp">
 	    Submitted by client <%= time_ago_in_words(feedback.created_at) %> ago.
 	  </span>
@@ -21,14 +20,19 @@
 <%end%>
 <% if current_user.isReviewer == 0 %>
 	<li id="feedback-<%= feedback.id %>">
-	  <%= link_to gravatar_for(feedback.user, size: 50), feedback_path%>
 	  <% if feedback.status == 0 %> 
+	  	<%= gravatar_for(feedback.user, size: 50)%>
           <span> Awaiting Feedback.
           </span>
           <span class="timestamp">
 		    Submitted <%= time_ago_in_words(feedback.created_at) %> ago.
 		  </span>
+		  <span>
+		  	<%= link_to "Cancel Request", feedback, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+		  </span>
       <%else%>
+      	<%= link_to gravatar_for(feedback.user, size: 50), feedback_path(feedback.id)%>
           <span class="score">Score: <%= feedback.score %></span>
 		  <br>
 		  <span class="overall">Overall Comments: <%= feedback.overall %></span>

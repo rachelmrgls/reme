@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @feedbacks = @user.feedbacks.paginate(page: params[:page])
-    @allFeedbacks = Feedback.paginate(page: params[:page])
+    @newFeedbacks = Feedback.where(status: '0').paginate(page: params[:page])
+    @oldFeedbacks = Feedback.where(status: '1').paginate(page: params[:page])
   end
 
   def new

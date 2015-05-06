@@ -2,6 +2,7 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+
     <%= stylesheet_link_tag 'application', media: 'all',
                                            'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -16,6 +17,35 @@
       <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
+          <script>
+      $(document).on('click', '.yamm .dropdown-menu', function(e) {
+        e.stopPropagation()
+      });
+
+    </script>
+    <script>
+      $(document).ready(function(){
+        //Handles menu drop down
+        $('.dropdown-menu').find('form').click(function (e) {
+            e.stopPropagation();
+        });
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+      });
+    </script>
+
+    <script>
+      $(document).ready(function(){
+      $('.navbar .dropdown').hover(function() {
+          $(this).find('.dropdown-menu').first().stop(true, true).delay(250).slideDown();
+      }, function() {
+          $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp()
+      });
+      })
+    </script>
     </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-	before_action :logged_in_user, only: [:create, :edit, :update, :show]
+	before_action :logged_in_user, only: [:create, :edit, :update, :show, :destroy]
 
 	def show
 	    @feedback = Feedback.find(params[:id])
@@ -35,6 +35,12 @@ class FeedbacksController < ApplicationController
 	      redirect_to current_user
 	    end
 	end
+
+	def destroy
+		Feedback.find(params[:id]).destroy
+	    flash[:success] = "Feedback Request canceled"
+	    redirect_to current_user
+	end 
 
 	private
 

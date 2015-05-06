@@ -6,14 +6,38 @@
 
 $gray-medium-light: #eaeaea;
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  -moz-box-sizing:    cover;
+  -webkit-box-sizing: cover;
+  box-sizing:         cover;
 }
 
 /* universal */
+html {
+  background:         url("background6.jpeg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.transparent {
+  background:#7f7f7f;
+  background:rgba(50,50,50,0.4);
+}
+
 body {
   padding-top: 60px;
+  background-color: rgba(255,255,255,0.0);
+}
+
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: rgba(255,255,255,0.7);
+}
+.well {
+  background-color: rgba(255,255,255,0.8);
 }
 
 section {
@@ -39,14 +63,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
+  font-size: 4em;
+  letter-spacing: 0px;
   margin-bottom: 30px;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -83,12 +107,13 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  border-top: 1px solid $gray-darker;
+  color: #808080;
+
   a {
-    color: $gray;
+    color: #808080;
     &:hover {
-      color: $gray-darker;
+      color: $gray;
     }
   }
   small {
