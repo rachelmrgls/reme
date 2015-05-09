@@ -12,7 +12,7 @@
         </div>
     </section>
     <div class="col-md-7 well">
-    <%= image_tag @feedback.resume if @feedback.resume? %>
+    <%= image_tag @feedback.resume, class:"img-responsive" if @feedback.resume? %>
     </div>
     <div class="col-md-5">
       <div class="appearance well"><strong>Appearance Comments: </strong><%= @feedback.appearance %></div>

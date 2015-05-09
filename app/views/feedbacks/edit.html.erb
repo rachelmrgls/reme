@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="col-md-7 well">
-  <%= image_tag @feedback.resume if @feedback.resume? %>
+  <%= image_tag @feedback.resume, class:"img-responsive" if @feedback.resume? %>
   </div>
   <div class="col-md-4 well" style="margin-left:30px;">
     <%= form_for(@feedback,  html: { multipart: true }) do |f| %>
